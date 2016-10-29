@@ -20,7 +20,7 @@
 // 注册UIView视图控件
 [[RedDotManager sharedManager] registerView:self.btn withPathTag:@"tagName"];
 
-// 注册tabBar中的item
+// 注册tabBar中的item，指定第几个item、点直径、点位置
 [[RedDotManager sharedManager] registerTabBar:self.navigationController.tabBarController.tabBar atIndex:0 withPathTag:@"tagName" andDotWidth:30 andDotPosition:RedDotPositionCenter];
 
 // 注册自定义view的navItem
@@ -29,6 +29,8 @@ UIBarButtonItem * leftItem1 = [[UIBarButtonItem alloc] initWithCustomView:imgV];
 [[RedDotManager sharedManager] registerView:imgV withPathTag:@"tagName"];
 
 // 注册没有自定义view的navItem
+// 序号是0开始从左往右数，左边从左往右递增，右边从右往左递增
+// 如：(左边)0 1  |  3 2(右边) 
 UIBarButtonItem * leftItem2 = [[UIBarButtonItem alloc] initWithTitle:@"nav" style:UIBarButtonItemStylePlain target:self action:@selector(navClick)];
 
 self.navigationItem.rightBarButtonItems = @[leftItem1,leftItem2];
